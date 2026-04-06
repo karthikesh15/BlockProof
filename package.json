@@ -15,7 +15,7 @@
     "crc-32": "^1.2.2",
     "cross-fetch": "^4.1.0",
     "define-data-property": "^1.1.4",
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.5.0",
     "dunder-proto": "^1.0.1",
     "es-define-property": "^1.0.1",
     "es-errors": "^1.3.0",

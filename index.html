@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BlockProof — File Integrity on Blockchain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.10.0/dist/ethers.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <span class="brand-icon">⬡</span>
+        <span class="brand-name">BlockProof</span>
+      </div>
+      <div class="nav-links">
+        <a onclick="showPage('home')" class="nav-link active" data-page="home">Home</a>
+        <a onclick="showPage('upload')" class="nav-link" data-page="upload">Store File</a>
+        <a onclick="showPage('verify')" class="nav-link" data-page="verify">Verify File</a>
+      </div>
+      <div class="nav-badge">Sepolia Testnet</div>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <div id="home" class="page active">
+    <div class="hero">
+      <div class="hero-tag">⬡ Powered by Ethereum</div>
+      <h1 class="hero-title">File Integrity<br/><span class="accent">on the Blockchain</span></h1>
+      <p class="hero-sub">Tamper-proof proof of existence. Store a cryptographic fingerprint of any file on-chain — verify it anytime, forever.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('upload')">Store a File &nbsp;→</button>
+        <button class="btn-ghost" onclick="showPage('verify')">Verify a File</button>
+      </div>
+      <div class="hero-cards">
+        <div class="feat-card">
+          <div class="feat-icon">🔒</div>
+          <div class="feat-title">Tamper-Proof</div>
+          <div class="feat-desc">File hashes stored immutably on Ethereum. Nobody can alter them.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🦊</div>
+          <div class="feat-title">User Pays Gas</div>
+          <div class="feat-desc">Connect MetaMask and sign your own transaction. No central wallet risk.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">⚡</div>
+          <div class="feat-title">Instant Verify</div>
+          <div class="feat-desc">Verification is a free read call — no gas, no waiting required.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPLOAD -->
+  <div id="upload" class="page">
+    <div class="card-page">
+      <div class="page-header">
+        <div class="page-icon">📦</div>
+        <h2>Store File on Blockchain</h2>
+        <p>Your file never leaves your device. Only its SHA-256 hash is stored on-chain.</p>
+      </div>
+      <div class="upload-zone" onclick="document.getElementById('fileInputUpload').click()">
+        <div class="upload-icon">⬆</div>
+        <div class="upload-label">Click to select a file</div>
+        <div class="upload-hint">Any file type · File stays on your device</div>
+        <input type="file" id="fileInputUpload" hidden onchange="onFileSelected('upload')" />
+      </div>
+      <div class="file-info" id="uploadFileInfo"></div>
+      <button class="btn-primary full" onclick="uploadFile()">Store on Blockchain &nbsp;→</button>
+      <div id="uploadResponse" class="response-area"></div>
+    </div>
+  </div>
+
+  <!-- VERIFY -->
+  <div id="verify" class="page">
+    <div class="card-page">
+      <div class="page-header">
+        <div class="page-icon">🔍</div>
+        <h2>Verify File Integrity</h2>
+        <p>Check if your file's hash exists on the blockchain. Free — no gas required.</p>
+      </div>
+      <div class="upload-zone" onclick="document.getElementById('fileInputVerify').click()">
+        <div class="upload-icon">🔎</div>
+        <div class="upload-label">Click to select a file to verify</div>
+        <div class="upload-hint">Any file type · File stays on your device</div>
+        <input type="file" id="fileInputVerify" hidden onchange="onFileSelected('verify')" />
+      </div>
+      <div class="file-info" id="verifyFileInfo"></div>
+      <button class="btn-primary full" onclick="verifyFile()">Verify Integrity &nbsp;→</button>
+      <div id="verifyResponse" class="response-area"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span>BlockProof © 2025 &nbsp;·&nbsp; Built on Ethereum Sepolia</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
