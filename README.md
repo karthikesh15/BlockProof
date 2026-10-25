@@ -89,12 +89,6 @@ Use a **test wallet only**, funded with Sepolia test ETH.
 
 Never commit `.env`, private keys or `node_modules`. Add them to `.gitignore`. See the checklist below if keys were ever committed.
 
-## 🗺️ Roadmap
-
-- [ ] IPFS storage for the original files
-- [ ] Multi-user ownership of records
-- [ ] Deploy the dashboard with a live demo
-
 ## 👤 Author
 
 **S D Karthikesh** | [LinkedIn](https://linkedin.com/in/karthikesh-sd) | [GitHub](https://github.com/karthikesh15) | sdkarthikesh2005@gmail.com
